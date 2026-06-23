@@ -14,14 +14,14 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
   target="_blank"
   rel="noopener noreferrer"
   aria-label="WhatsApp Anfrage"
+  data-analytics-event="whatsapp_click"
+  data-analytics-label="Floating WhatsApp Button"
   class="group fixed bottom-5 right-5 z-50 flex items-center gap-3 rounded-full bg-zinc-950 px-5 py-3.5 text-white shadow-2xl transition duration-300 hover:scale-[1.03] hover:bg-black"
 >
   <!-- Glow -->
-
   <span class="absolute inset-0 rounded-full bg-zinc-950 opacity-20 blur-xl"></span>
 
   <!-- WhatsApp Icon -->
-
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 32 32"
@@ -33,7 +33,6 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
   </svg>
 
   <!-- Text -->
-
   <div class="relative hidden sm:block">
     <p class="text-[10px] uppercase tracking-[0.22em] text-zinc-500">
       WhatsApp
@@ -44,3 +43,19 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
     </p>
   </div>
 </a>
+
+<script is:inline>
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest("[data-analytics-event='whatsapp_click']");
+
+    if (!link || typeof window.gtag !== "function") {
+      return;
+    }
+
+    window.gtag("event", "whatsapp_click", {
+      event_category: "Kontakt",
+      event_label: link.dataset.analyticsLabel || "WhatsApp Button",
+      link_url: link.href,
+    });
+  });
+</script>
