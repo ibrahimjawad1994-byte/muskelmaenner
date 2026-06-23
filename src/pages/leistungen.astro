@@ -1,0 +1,232 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { company } from "../config/company";
+
+const services = [
+  {
+    title: "Wohnungsentrümpelung",
+    description:
+      "Schnelle und saubere Räumung von Wohnungen jeder Größe in Berlin und Umgebung.",
+    href: "/services/wohnungsentruempelung-berlin",
+  },
+
+  {
+    title: "Haushaltsauflösung",
+    description:
+      "Diskrete und zuverlässige Haushaltsauflösungen für private Haushalte.",
+    href: "/services/haushaltsaufloesung-berlin",
+  },
+
+  {
+    title: "Kellerentrümpelung",
+    description:
+      "Entrümpelung von Kellern, Dachböden, Garagen und Abstellräumen.",
+    href: "/services/keller-entruempelung-berlin",
+  },
+
+  {
+    title: "Büroentrümpelung",
+    description:
+      "Räumung von Büros, Praxen, Lagern und Gewerbeflächen.",
+    href: "/services/buero-entruempelung-berlin",
+  },
+];
+
+const districts = [
+  {
+    title: "Entrümpelung Neukölln",
+    description:
+      "Wohnungsentrümpelungen, Haushaltsauflösungen und Kellerentrümpelungen in Neukölln.",
+    href: "/berlin/entruempelung-neukoelln",
+  },
+
+  {
+    title: "Entrümpelung Charlottenburg",
+    description:
+      "Professionelle Entrümpelungen und Wohnungsauflösungen in Charlottenburg.",
+    href: "/berlin/entruempelung-charlottenburg",
+  },
+
+  {
+    title: "Entrümpelung Kreuzberg",
+    description:
+      "Schnelle und zuverlässige Entrümpelungen in Kreuzberg.",
+    href: "/berlin/entruempelung-kreuzberg",
+  },
+
+  {
+    title: "Entrümpelung Prenzlauer Berg",
+    description:
+      "Wohnungsentrümpelungen und Haushaltsauflösungen in Prenzlauer Berg.",
+    href: "/berlin/entruempelung-prenzlauer-berg",
+  },
+
+  {
+    title: "Entrümpelung Friedrichshain",
+    description:
+      "Professionelle Räumungen und Entrümpelungen in Friedrichshain.",
+    href: "/berlin/entruempelung-friedrichshain",
+  },
+
+  {
+    title: "Entrümpelung Spandau",
+    description:
+      "Entrümpelungen, Kellerentrümpelungen und Haushaltsauflösungen in Spandau.",
+    href: "/berlin/entruempelung-spandau",
+  },
+
+  {
+    title: "Entrümpelung Pankow",
+    description:
+      "Professionelle Entrümpelungen und Wohnungsauflösungen in Pankow.",
+    href: "/berlin/entruempelung-pankow",
+  },
+
+  {
+    title: "Entrümpelung Steglitz",
+    description:
+      "Zuverlässige Entrümpelungen und Räumungen in Steglitz.",
+    href: "/berlin/entruempelung-steglitz",
+  },
+
+  {
+    title: "Entrümpelung Wedding",
+    description:
+      "Wohnungsentrümpelungen und Haushaltsauflösungen im Wedding.",
+    href: "/berlin/entruempelung-wedding",
+  },
+];
+
+const whatsappPrefill =
+  "Hallo Muskelmänner! Ich möchte eine Entrümpelung anfragen. Ort/PLZ: __, Objekt: __, Wunschtermin: __.";
+
+const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponent(
+  whatsappPrefill
+)}`;
+---
+
+<Layout title={`Leistungen – ${company.name}`}>
+  <section class="py-16 sm:py-24">
+    <div class="max-w-3xl">
+      <p class="inline-flex rounded-full border px-3 py-1 text-sm text-zinc-700">
+        Leistungen
+      </p>
+
+      <h1 class="mt-6 text-4xl font-semibold tracking-tight sm:text-6xl">
+        Entrümpelung in Berlin & Umgebung
+      </h1>
+
+      <p class="mt-6 text-lg leading-8 text-zinc-700">
+        {company.name} übernimmt Entrümpelungen, Haushaltsauflösungen und
+        Räumungen für private und gewerbliche Kunden. Schnell, sauber und
+        zuverlässig.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="mb-10">
+      <p class="inline-flex rounded-full border px-3 py-1 text-sm text-zinc-700">
+        Unsere Leistungen
+      </p>
+
+      <h2 class="mt-6 text-4xl font-semibold tracking-tight">
+        Leistungen im Überblick
+      </h2>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        services.map((service) => (
+          <a
+            href={service.href}
+            class="group rounded-3xl border border-zinc-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-lg"
+          >
+            <h2 class="text-2xl font-semibold group-hover:text-zinc-700">
+              {service.title}
+            </h2>
+
+            <p class="mt-4 leading-7 text-zinc-600">
+              {service.description}
+            </p>
+
+            <p class="mt-6 text-sm font-medium text-zinc-900">
+              Mehr erfahren →
+            </p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="mb-10">
+      <p class="inline-flex rounded-full border px-3 py-1 text-sm text-zinc-700">
+        Regionen
+      </p>
+
+      <h2 class="mt-6 text-4xl font-semibold tracking-tight">
+        Entrümpelung in Berliner Bezirken
+      </h2>
+
+      <p class="mt-4 max-w-2xl leading-7 text-zinc-600">
+        Muskelmänner ist in ganz Berlin im Einsatz. Hier finden Sie unsere
+        Leistungen für einzelne Bezirke.
+      </p>
+    </div>
+
+    <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+      {
+        districts.map((district) => (
+          <a
+            href={district.href}
+            class="group rounded-3xl border border-zinc-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-lg"
+          >
+            <h3 class="text-2xl font-semibold group-hover:text-zinc-700">
+              {district.title}
+            </h3>
+
+            <p class="mt-4 leading-7 text-zinc-600">
+              {district.description}
+            </p>
+
+            <p class="mt-6 text-sm font-medium text-zinc-900">
+              Mehr erfahren →
+            </p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="rounded-[2.5rem] bg-zinc-900 p-8 text-white sm:p-10">
+      <h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">
+        Nicht sicher, welche Leistung passt?
+      </h2>
+
+      <p class="mt-5 max-w-2xl leading-8 text-zinc-300">
+        Schicken Sie uns einfach eine kurze Beschreibung Ihres Objekts.
+        Fotos können Sie bequem per WhatsApp ergänzen.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a
+          href={waHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-2xl bg-white px-7 py-4 text-sm font-medium text-zinc-900 transition hover:bg-zinc-100"
+        >
+          WhatsApp öffnen
+        </a>
+
+        <a
+          href="/kontakt"
+          class="rounded-2xl border border-white/20 px-7 py-4 text-sm font-medium text-white transition hover:bg-white/10"
+        >
+          Kontaktformular
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

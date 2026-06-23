@@ -1,0 +1,80 @@
+---
+import ServicePage from "../../components/ServicePage.astro";
+
+const benefits = [
+  {
+    title: "Schnelle Termine",
+    text: "Kurzfristige Wohnungsentrümpelungen in Berlin und Umgebung möglich.",
+  },
+  {
+    title: "Faire Preise",
+    text: "Transparente Angebote ohne versteckte Zusatzkosten.",
+  },
+  {
+    title: "Besenrein möglich",
+    text: "Auf Wunsch hinterlassen wir die Wohnung sauber und ordentlich.",
+  },
+];
+
+const steps = [
+  {
+    title: "Anfrage senden",
+    text: "Senden Sie uns Informationen oder Fotos per WhatsApp oder Formular.",
+  },
+  {
+    title: "Angebot erhalten",
+    text: "Sie erhalten eine transparente Einschätzung zum Aufwand.",
+  },
+  {
+    title: "Entrümpelung durchführen",
+    text: "Wir räumen termingerecht und zuverlässig.",
+  },
+];
+
+const contentParagraphs = [
+  "Muskelmänner übernimmt Wohnungsentrümpelungen in Berlin und Umgebung für private und gewerbliche Kunden.",
+  "Ob einzelne Zimmer, komplette Wohnungen oder stark gefüllte Objekte – wir unterstützen zuverlässig und strukturiert.",
+  "Auf Wunsch erfolgt die Übergabe besenrein. Kurzfristige Termine sind je nach Auslastung möglich.",
+];
+
+const areaParagraphs = [
+  "Wir sind in ganz Berlin und Umgebung im Einsatz.",
+  "Zusätzlich übernehmen wir Entrümpelungen im Umkreis von bis zu 350 km rund um Berlin.",
+];
+
+const faqs = [
+  {
+    question: "Wie schnell sind Termine möglich?",
+    answer:
+      "Kurzfristige Termine sind je nach Auslastung häufig möglich.",
+  },
+  {
+    question: "Kann ich Fotos per WhatsApp senden?",
+    answer:
+      "Ja, Fotos helfen bei einer schnellen Einschätzung des Aufwands.",
+  },
+  {
+    question: "Sind Festpreise möglich?",
+    answer:
+      "Ja, nach Einschätzung erhalten Sie ein transparentes Angebot.",
+  },
+];
+---
+
+<ServicePage
+  title="Wohnungsentrümpelung Berlin"
+  metaTitle="Wohnungsentrümpelung Berlin – Muskelmänner"
+  badge="Wohnungsentrümpelung Berlin"
+  headline="Wohnungsentrümpelung in Berlin & Umgebung"
+  intro="Professionelle Entrümpelungen von Wohnungen jeder Größe – schnell, sauber und zuverlässig."
+  whatsappText="Hallo Muskelmänner! Ich möchte eine Wohnungsentrümpelung anfragen."
+  benefits={benefits}
+  contentTitle="Professionelle Wohnungsentrümpelung"
+  contentParagraphs={contentParagraphs}
+  steps={steps}
+  areaTitle="Entrümpelung in Berlin & Umgebung"
+  areaParagraphs={areaParagraphs}
+  faqs={faqs}
+  ctaTitle="Jetzt Wohnungsentrümpelung anfragen"
+  ctaText="Schicken Sie uns einfach Informationen oder Fotos per WhatsApp oder Kontaktformular."
+/>

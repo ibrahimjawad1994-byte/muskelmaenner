@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Seite nicht gefunden | Muskelmänner"
+  description="Die angeforderte Seite konnte nicht gefunden werden."
+>
+  <section class="flex min-h-[70vh] items-center py-20">
+    <div class="max-w-3xl">
+      <p class="text-sm font-medium uppercase tracking-[0.22em] text-zinc-500">
+        Fehler 404
+      </p>
+
+      <h1 class="font-heading mt-6 text-6xl font-semibold leading-none tracking-tight text-zinc-950 sm:text-7xl">
+        Diese Seite existiert nicht.
+      </h1>
+
+      <p class="mt-8 max-w-2xl text-lg leading-8 text-zinc-600">
+        Die angeforderte Seite wurde möglicherweise verschoben, gelöscht
+        oder existiert nicht mehr.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a
+          href="/"
+          class="rounded-2xl bg-zinc-950 px-7 py-4 text-sm font-medium text-white transition hover:bg-black"
+        >
+          Zur Startseite
+        </a>
+
+        <a
+          href="/kontakt"
+          class="rounded-2xl border border-zinc-300 bg-white px-7 py-4 text-sm font-medium text-zinc-900 transition hover:bg-zinc-50"
+        >
+          Kontakt aufnehmen
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

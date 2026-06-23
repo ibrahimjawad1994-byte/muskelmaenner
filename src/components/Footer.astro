@@ -1,0 +1,159 @@
+---
+import { company } from "../config/company";
+import Logo from "./Logo.astro";
+
+const currentYear = new Date().getFullYear();
+
+const services = [
+  {
+    label: "Wohnungsentrümpelung",
+    href: "/wohnungsentruempelung-berlin",
+  },
+  {
+    label: "Haushaltsauflösung",
+    href: "/haushaltsaufloesung-berlin",
+  },
+  {
+    label: "Kellerentrümpelung",
+    href: "/keller-entruempelung-berlin",
+  },
+  {
+    label: "Büroentrümpelung",
+    href: "/buero-entruempelung-berlin",
+  },
+];
+---
+
+<footer class="relative overflow-hidden border-t border-zinc-200 bg-zinc-950 text-white">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_top_left,white,transparent_35%)]"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <div class="grid gap-14 lg:grid-cols-[1.4fr_0.8fr_0.8fr_0.8fr]">
+      <div>
+        <Logo variant="light" />
+
+        <p class="mt-8 max-w-md leading-8 text-zinc-400">
+          Professionelle Entrümpelungen, Haushaltsauflösungen und Räumungen
+          für private und gewerbliche Kunden in Berlin und Umgebung.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            href="/kontakt"
+            class="rounded-2xl bg-white px-6 py-3 text-sm font-medium text-zinc-950 transition hover:bg-zinc-100"
+          >
+            Angebot anfragen
+          </a>
+
+          <a
+            href={`tel:${company.phoneTel}`}
+            class="rounded-2xl border border-white/15 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+          >
+            Anrufen
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-medium uppercase tracking-[0.24em] text-zinc-500">
+          Navigation
+        </h3>
+
+        <ul class="mt-6 space-y-4">
+          <li>
+            <a href="/" class="text-zinc-400 transition hover:text-white">
+              Startseite
+            </a>
+          </li>
+
+          <li>
+            <a href="/leistungen" class="text-zinc-400 transition hover:text-white">
+              Leistungen
+            </a>
+          </li>
+
+          <li>
+            <a href="/preise" class="text-zinc-400 transition hover:text-white">
+              Preise
+            </a>
+          </li>
+
+          <li>
+            <a href="/kontakt" class="text-zinc-400 transition hover:text-white">
+              Kontakt
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-medium uppercase tracking-[0.24em] text-zinc-500">
+          Leistungen
+        </h3>
+
+        <ul class="mt-6 space-y-4">
+          {
+            services.map((service) => (
+              <li>
+                <a
+                  href={service.href}
+                  class="text-zinc-400 transition hover:text-white"
+                >
+                  {service.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-medium uppercase tracking-[0.24em] text-zinc-500">
+          Kontakt
+        </h3>
+
+        <ul class="mt-6 space-y-4">
+          <li>
+            <a
+              href={`tel:${company.phoneTel}`}
+              class="text-zinc-400 transition hover:text-white"
+            >
+              {company.phoneDisplay}
+            </a>
+          </li>
+
+          <li>
+            <a
+              href={`mailto:${company.email}`}
+              class="text-zinc-400 transition hover:text-white"
+            >
+              {company.email}
+            </a>
+          </li>
+
+          <li class="text-zinc-400">
+            {company.serviceArea}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 border-t border-white/10 pt-8">
+      <div class="flex flex-col gap-5 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
+        <p>© {currentYear} Muskelmänner. Alle Rechte vorbehalten.</p>
+
+        <div class="flex flex-wrap items-center gap-6">
+          <a href="/impressum" class="transition hover:text-white">
+            Impressum
+          </a>
+
+          <a href="/datenschutz" class="transition hover:text-white">
+            Datenschutz
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

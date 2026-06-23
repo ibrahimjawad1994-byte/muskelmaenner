@@ -1,0 +1,65 @@
+---
+import MobileMenu from "./MobileMenu.jsx";
+import Logo from "./Logo.astro";
+
+const navigation = [
+  {
+    label: "Start",
+    href: "/",
+  },
+  {
+    label: "Leistungen",
+    href: "/leistungen",
+  },
+  {
+    label: "Preise",
+    href: "/preise",
+  },
+  {
+    label: "Kontakt",
+    href: "/kontakt",
+  },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/90 backdrop-blur-xl">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
+
+    <!-- Logo -->
+
+    <Logo />
+
+    <!-- Desktop Navigation -->
+
+    <nav class="hidden items-center gap-10 lg:flex">
+      {
+        navigation.map((item) => (
+          <a
+            href={item.href}
+            class="text-sm font-medium tracking-[0.08em] text-zinc-600 transition duration-200 hover:text-zinc-950"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Desktop CTA -->
+
+    <div class="hidden lg:block">
+      <a
+        href="/kontakt"
+        class="rounded-2xl bg-zinc-950 px-5 py-3 text-sm font-medium tracking-[0.04em] text-white transition duration-200 hover:bg-zinc-800"
+      >
+        Angebot anfragen
+      </a>
+    </div>
+
+    <!-- Mobile -->
+
+    <div class="lg:hidden">
+      <MobileMenu client:load />
+    </div>
+
+  </div>
+</header>

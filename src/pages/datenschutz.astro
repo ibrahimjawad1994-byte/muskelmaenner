@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { company } from "../config/company";
+---
+
+<Layout title={`Datenschutz – ${company.name}`}>
+  <section class="mx-auto max-w-3xl py-16">
+    <h1 class="text-4xl font-semibold tracking-tight">Datenschutz</h1>
+
+    <div class="mt-8 space-y-6 text-zinc-700">
+      <div>
+        <h2 class="text-xl font-semibold text-zinc-900">1. Allgemeine Hinweise</h2>
+        <p class="mt-2">
+          Der Schutz Ihrer persönlichen Daten ist uns wichtig. Diese Datenschutzerklärung
+          informiert Sie darüber, welche personenbezogenen Daten auf dieser Website erfasst
+          werden und wofür sie genutzt werden.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-zinc-900">2. Verantwortliche Stelle</h2>
+        <p class="mt-2">
+          {company.name}<br />
+          {company.owner}<br />
+          {company.street}<br />
+          {company.postalCode} {company.city}<br />
+          E-Mail: {company.email}<br />
+          Telefon: {company.phoneDisplay}
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-zinc-900">
+          3. Erhebung und Speicherung personenbezogener Daten
+        </h2>
+        <p class="mt-2">
+          Personenbezogene Daten werden nur erhoben, wenn Sie uns diese im Rahmen einer Anfrage
+          freiwillig mitteilen, zum Beispiel per Kontaktformular, E-Mail oder WhatsApp.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-zinc-900">4. Zweck der Verarbeitung</h2>
+        <p class="mt-2">
+          Die Verarbeitung Ihrer Daten erfolgt ausschließlich zur Bearbeitung Ihrer Anfrage,
+          zur Kontaktaufnahme und zur Durchführung unserer Dienstleistungen.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-zinc-900">5. Ihre Rechte</h2>
+        <p class="mt-2">
+          Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung
+          sowie auf Widerspruch gegen die Verarbeitung Ihrer personenbezogenen Daten.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-zinc-900">6. Kontakt</h2>
+        <p class="mt-2">
+          Bei Fragen zum Datenschutz wenden Sie sich bitte an:<br />
+          {company.email}
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

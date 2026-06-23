@@ -1,0 +1,333 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { company } from "../config/company";
+
+const whatsappPrefill =
+  "Hallo Muskelmänner! Ich habe gerade eine Anfrage über die Website gesendet und möchte Bilder vom Objekt schicken.";
+
+const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponent(
+  whatsappPrefill
+)}`;
+---
+
+<Layout title={`Kontakt – ${company.name}`}>
+  <section class="relative overflow-hidden py-20 sm:py-28">
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute inset-0 bg-gradient-to-b from-zinc-50 to-white"></div>
+      <div class="absolute right-0 top-0 h-72 w-72 rounded-full bg-zinc-100 blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-zinc-100 blur-3xl"></div>
+    </div>
+
+    <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+      <div>
+        <p class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-1.5 text-sm text-zinc-600 shadow-sm">
+          <span class="h-2 w-2 rounded-full bg-zinc-900"></span>
+          Kontakt aufnehmen
+        </p>
+
+        <h1 class="font-heading mt-8 max-w-4xl text-5xl font-semibold leading-none tracking-tight text-zinc-950 sm:text-6xl lg:text-7xl">
+          Der erste Schritt zu einer sauberen Räumung.
+        </h1>
+
+        <p class="mt-8 max-w-2xl text-lg leading-8 text-zinc-600">
+          Senden Sie Ihre Anfrage über das Formular. Wenn Sie Fotos haben,
+          können Sie diese anschließend ganz einfach per WhatsApp schicken.
+        </p>
+      </div>
+
+      <div class="rounded-[2.5rem] bg-zinc-950 p-8 text-white shadow-2xl">
+        <p class="text-sm uppercase tracking-[0.22em] text-zinc-400">
+          Bilder senden
+        </p>
+
+        <h2 class="font-heading mt-4 text-4xl font-semibold leading-none">
+          Fotos bitte per WhatsApp schicken.
+        </h2>
+
+        <p class="mt-5 leading-8 text-zinc-300">
+          Erst Formular absenden, danach können Sie Bilder direkt über WhatsApp
+          ergänzen. So können wir den Aufwand schneller einschätzen.
+        </p>
+
+        <a
+          href={waHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-8 inline-flex rounded-2xl bg-white px-7 py-4 text-sm font-medium text-zinc-950 transition hover:bg-zinc-100"
+        >
+          Bilder per WhatsApp senden
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-28">
+    <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+      <div class="space-y-6">
+        <div class="rounded-[2.5rem] border border-zinc-200 bg-white p-8 shadow-sm sm:p-10">
+          <p class="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+            Direktkontakt
+          </p>
+
+          <h2 class="font-heading mt-4 text-5xl font-semibold leading-none tracking-tight text-zinc-950">
+            Persönlich erreichbar.
+          </h2>
+
+          <div class="mt-8 space-y-7">
+            <div>
+              <p class="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">
+                Telefon
+              </p>
+
+              <a
+                href={`tel:${company.phoneTel}`}
+                class="mt-2 block text-xl font-medium text-zinc-950 transition hover:text-zinc-700"
+              >
+                {company.phoneDisplay}
+              </a>
+            </div>
+
+            <div>
+              <p class="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">
+                E-Mail
+              </p>
+
+              <a
+                href={`mailto:${company.email}`}
+                class="mt-2 block text-xl font-medium text-zinc-950 transition hover:text-zinc-700"
+              >
+                {company.email}
+              </a>
+            </div>
+
+            <div>
+              <p class="text-xs font-medium uppercase tracking-[0.22em] text-zinc-400">
+                Einsatzgebiet
+              </p>
+
+              <p class="mt-2 text-xl font-medium text-zinc-950">
+                {company.serviceArea}
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-2xl bg-zinc-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-zinc-800"
+            >
+              WhatsApp
+            </a>
+
+            <a
+              href={`tel:${company.phoneTel}`}
+              class="rounded-2xl border border-zinc-300 bg-white px-6 py-3 text-sm font-medium text-zinc-900 transition hover:bg-zinc-50"
+            >
+              Anrufen
+            </a>
+          </div>
+        </div>
+
+        <div class="rounded-[2.5rem] border border-zinc-200 bg-zinc-50 p-8 sm:p-10">
+          <p class="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+            Angebot
+          </p>
+
+          <h2 class="font-heading mt-4 text-4xl font-semibold leading-none tracking-tight text-zinc-950">
+            Was wir benötigen
+          </h2>
+
+          <ul class="mt-8 space-y-4 leading-7 text-zinc-700">
+            <li>• Ort / Postleitzahl</li>
+            <li>• Art des Objekts</li>
+            <li>• grobe Größe oder Umfang</li>
+            <li>• gewünschter Termin</li>
+            <li>• Fotos gerne nach dem Absenden per WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rounded-[2.5rem] border border-zinc-200 bg-white p-8 shadow-sm sm:p-10">
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+          Formular
+        </p>
+
+        <h2 class="font-heading mt-4 text-5xl font-semibold leading-none tracking-tight text-zinc-950">
+          Anfrageformular
+        </h2>
+
+        <p class="mt-5 leading-8 text-zinc-600">
+          Füllen Sie das Formular aus. Nach dem Absenden können Sie optional
+          Fotos per WhatsApp nachreichen.
+        </p>
+
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/xwvrqkey"
+          method="POST"
+          class="mt-10 space-y-5"
+        >
+          <input type="hidden" name="source" value="Website Muskelmänner" />
+          <input type="hidden" name="form_name" value="Kontaktformular" />
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="name" class="mb-2 block text-sm font-medium text-zinc-900">
+                Name
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                class="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3.5 text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-950"
+                placeholder="Ihr Name"
+              />
+            </div>
+
+            <div>
+              <label for="phone" class="mb-2 block text-sm font-medium text-zinc-900">
+                Telefon
+              </label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                class="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3.5 text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-950"
+                placeholder="+49 ..."
+              />
+            </div>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="email" class="mb-2 block text-sm font-medium text-zinc-900">
+                E-Mail
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                class="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3.5 text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-950"
+                placeholder="email@email.de"
+              />
+            </div>
+
+            <div>
+              <label for="location" class="mb-2 block text-sm font-medium text-zinc-900">
+                Ort / PLZ
+              </label>
+              <input
+                id="location"
+                name="location"
+                type="text"
+                class="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3.5 text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-950"
+                placeholder="z. B. Berlin 10779"
+              />
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+            <p class="font-medium text-zinc-950">
+              Haben Sie Fotos?
+            </p>
+
+            <p class="mt-2 text-sm leading-6 text-zinc-600">
+              Senden Sie das Formular zuerst ab. Auf der nächsten Seite können
+              Sie Bilder direkt per WhatsApp nachreichen.
+            </p>
+          </div>
+
+          <div>
+            <label for="message" class="mb-2 block text-sm font-medium text-zinc-900">
+              Nachricht
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="7"
+              required
+              class="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3.5 text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-950"
+              placeholder="Beschreiben Sie kurz Ihr Anliegen."
+            ></textarea>
+          </div>
+
+          <p
+            id="form-status"
+            class="hidden rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+          ></p>
+
+          <button
+            id="submit-button"
+            type="submit"
+            class="w-full rounded-2xl bg-zinc-950 px-6 py-4 text-sm font-medium text-white transition hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            Anfrage senden
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+    const button = document.getElementById("submit-button");
+
+    if (form instanceof HTMLFormElement) {
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        if (button instanceof HTMLButtonElement) {
+          button.disabled = true;
+          button.textContent = "Wird gesendet...";
+        }
+
+        if (status instanceof HTMLElement) {
+          status.classList.add("hidden");
+          status.textContent = "";
+        }
+
+        const data = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: data,
+            headers: {
+              Accept: "application/json",
+            },
+          });
+
+          if (response.ok) {
+            window.location.href = "/danke";
+            return;
+          }
+
+          const errorData = await response.json().catch(() => null);
+
+          if (status instanceof HTMLElement) {
+            status.textContent =
+              errorData?.errors?.[0]?.message ||
+              "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.";
+            status.classList.remove("hidden");
+          }
+        } catch {
+          if (status instanceof HTMLElement) {
+            status.textContent =
+              "Es gab ein Netzwerkproblem. Bitte versuchen Sie es erneut.";
+            status.classList.remove("hidden");
+          }
+        } finally {
+          if (button instanceof HTMLButtonElement) {
+            button.disabled = false;
+            button.textContent = "Anfrage senden";
+          }
+        }
+      });
+    }
+  </script>
+</Layout>

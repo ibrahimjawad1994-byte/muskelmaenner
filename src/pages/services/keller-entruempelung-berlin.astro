@@ -1,0 +1,79 @@
+---
+import ServicePage from "../../components/ServicePage.astro";
+
+const benefits = [
+  {
+    title: "Schnelle Termine",
+    text: "Kurzfristige Räumungen von Keller, Garage oder Dachboden möglich.",
+  },
+  {
+    title: "Faire Preise",
+    text: "Transparente Einschätzung abhängig von Umfang und Aufwand.",
+  },
+  {
+    title: "Saubere Übergabe",
+    text: "Auf Wunsch werden Keller oder Nebenräume ordentlich übergeben.",
+  },
+];
+
+const steps = [
+  {
+    title: "Fotos senden",
+    text: "Senden Sie uns Fotos und den Standort für eine schnelle Einschätzung.",
+  },
+  {
+    title: "Angebot erhalten",
+    text: "Sie bekommen ein transparentes Angebot für die Räumung.",
+  },
+  {
+    title: "Keller räumen",
+    text: "Wir räumen zuverlässig, strukturiert und sauber.",
+  },
+];
+
+const contentParagraphs = [
+  "Keller, Dachböden und Garagen sammeln über Jahre oft viele ungenutzte Gegenstände.",
+  "Muskelmänner übernimmt die Entrümpelung von Kellern, Garagen, Dachböden und Abstellräumen in Berlin und Umgebung.",
+  "Ob einzelne Räume oder größere Nebenflächen – wir sorgen für eine strukturierte und zuverlässige Räumung.",
+];
+
+const areaParagraphs = [
+  "Wir übernehmen Kellerentrümpelungen in ganz Berlin.",
+  "Auch im Berliner Umland können Keller, Garagen und Nebenräume angefragt werden.",
+];
+
+const faqs = [
+  {
+    question: "Reichen Fotos für ein Angebot?",
+    answer:
+      "In vielen Fällen ja. Fotos per WhatsApp helfen uns, Umfang und Aufwand schneller einzuschätzen.",
+  },
+  {
+    question: "Werden auch Garagen und Dachböden geräumt?",
+    answer:
+      "Ja, wir räumen Keller, Dachböden, Garagen, Abstellräume und ähnliche Bereiche.",
+  },
+  {
+    question: "Sind kurzfristige Termine möglich?",
+    answer:
+      "Je nach Auslastung sind kurzfristige Termine möglich. Fragen Sie am besten direkt per WhatsApp an.",
+  },
+];
+---
+
+<ServicePage
+  metaTitle="Kellerentrümpelung Berlin – Muskelmänner"
+  badge="Kellerentrümpelung Berlin"
+  headline="Kellerentrümpelung in Berlin & Umgebung"
+  intro="Räumung von Kellern, Garagen, Dachböden und Abstellräumen – zuverlässig, ordentlich und schnell."
+  whatsappText="Hallo Muskelmänner! Ich möchte eine Kellerentrümpelung in Berlin anfragen."
+  benefits={benefits}
+  contentTitle="Keller, Garage und Dachboden entrümpeln"
+  contentParagraphs={contentParagraphs}
+  steps={steps}
+  areaTitle="Kellerentrümpelung in Berlin & Umgebung"
+  areaParagraphs={areaParagraphs}
+  faqs={faqs}
+  ctaTitle="Jetzt Kellerentrümpelung anfragen"
+  ctaText="Schicken Sie uns Fotos, Ort und groben Umfang. Wir melden uns schnell mit einer Einschätzung zurück."
+/>

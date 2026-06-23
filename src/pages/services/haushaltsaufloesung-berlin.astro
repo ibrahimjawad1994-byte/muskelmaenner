@@ -1,0 +1,79 @@
+---
+import ServicePage from "../../components/ServicePage.astro";
+
+const benefits = [
+  {
+    title: "Diskrete Abwicklung",
+    text: "Respektvoller Umgang bei Nachlass, Umzug oder Haushaltsauflösung.",
+  },
+  {
+    title: "Faire Angebote",
+    text: "Transparente Einschätzung abhängig von Umfang und Aufwand.",
+  },
+  {
+    title: "Besenrein möglich",
+    text: "Auf Wunsch wird das Objekt ordentlich und sauber übergeben.",
+  },
+];
+
+const steps = [
+  {
+    title: "Kontakt aufnehmen",
+    text: "Senden Sie uns Ort, Umfang und bei Bedarf Fotos zur Einschätzung.",
+  },
+  {
+    title: "Angebot erhalten",
+    text: "Wir erstellen ein transparentes Angebot für die Haushaltsauflösung.",
+  },
+  {
+    title: "Haushalt auflösen",
+    text: "Wir räumen zuverlässig, termingerecht und auf Wunsch besenrein.",
+  },
+];
+
+const contentParagraphs = [
+  "Eine Haushaltsauflösung ist oft mit organisatorischem und emotionalem Aufwand verbunden.",
+  "Muskelmänner unterstützt Sie bei der vollständigen oder teilweisen Auflösung von Wohnungen, Häusern, Kellern und Nebenräumen.",
+  "Wir arbeiten strukturiert, diskret und zuverlässig – von der ersten Anfrage bis zur Übergabe.",
+];
+
+const areaParagraphs = [
+  "Wir übernehmen Haushaltsauflösungen in ganz Berlin.",
+  "Auch im Berliner Umland und je nach Umfang bis zu 350 km rund um Berlin können Sie uns anfragen.",
+];
+
+const faqs = [
+  {
+    question: "Was kostet eine Haushaltsauflösung?",
+    answer:
+      "Die Kosten hängen von Größe, Umfang, Etage, Zugänglichkeit und Entsorgungsaufwand ab.",
+  },
+  {
+    question: "Muss ich bei der Räumung vor Ort sein?",
+    answer:
+      "Das hängt vom Einzelfall ab. Viele Details können vorab per Telefon, Formular oder WhatsApp geklärt werden.",
+  },
+  {
+    question: "Können Keller und Dachboden mitgeräumt werden?",
+    answer:
+      "Ja, Keller, Dachboden, Garage und Nebenräume können mitgeräumt werden.",
+  },
+];
+---
+
+<ServicePage
+  metaTitle="Haushaltsauflösung Berlin – Muskelmänner"
+  badge="Haushaltsauflösung Berlin"
+  headline="Haushaltsauflösung in Berlin & Umgebung"
+  intro="Diskrete und zuverlässige Haushaltsauflösungen – strukturiert, sauber und auf Wunsch besenrein."
+  whatsappText="Hallo Muskelmänner! Ich möchte eine Haushaltsauflösung in Berlin anfragen."
+  benefits={benefits}
+  contentTitle="Diskrete Haushaltsauflösung"
+  contentParagraphs={contentParagraphs}
+  steps={steps}
+  areaTitle="Haushaltsauflösung in Berlin & Umgebung"
+  areaParagraphs={areaParagraphs}
+  faqs={faqs}
+  ctaTitle="Jetzt Haushaltsauflösung anfragen"
+  ctaText="Schicken Sie uns Ort, Umfang und optional Fotos. Wir melden uns schnell mit einer Einschätzung zurück."
+/>

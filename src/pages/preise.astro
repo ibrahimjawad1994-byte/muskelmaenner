@@ -1,0 +1,323 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { company } from "../config/company";
+
+const whatsappPrefill =
+  "Hallo Muskelmänner! Ich möchte ein Angebot für eine Entrümpelung anfragen. Ort/PLZ: __, Objekt: __, Umfang: __.";
+
+const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponent(
+  whatsappPrefill
+)}`;
+---
+
+<Layout title={`Preise – ${company.name}`}>
+  <section class="relative overflow-hidden py-20 sm:py-28">
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute inset-0 bg-gradient-to-b from-zinc-50 to-white"></div>
+      <div class="absolute right-0 top-0 h-72 w-72 rounded-full bg-zinc-100 blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-zinc-100 blur-3xl"></div>
+    </div>
+
+    <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+      <div>
+        <p class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-1.5 text-sm text-zinc-600 shadow-sm">
+          <span class="h-2 w-2 rounded-full bg-zinc-900"></span>
+          Preise & Angebote
+        </p>
+
+        <h1 class="font-heading mt-8 max-w-4xl text-5xl font-semibold leading-none tracking-tight text-zinc-950 sm:text-6xl lg:text-7xl">
+          Transparente Preise statt Überraschungen.
+        </h1>
+
+        <p class="mt-8 max-w-2xl text-lg leading-8 text-zinc-600">
+          Jede Entrümpelung ist anders. Deshalb erstellen wir faire Angebote
+          nach Umfang, Zugänglichkeit, Objektgröße und Entsorgungsaufwand.
+        </p>
+
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a
+            href={waHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-2xl bg-zinc-950 px-7 py-4 text-sm font-medium text-white transition hover:bg-zinc-800"
+          >
+            WhatsApp Anfrage
+          </a>
+
+          <a
+            href="/kontakt"
+            class="rounded-2xl border border-zinc-300 bg-white px-7 py-4 text-sm font-medium text-zinc-900 transition hover:bg-zinc-50"
+          >
+            Angebot anfragen
+          </a>
+        </div>
+      </div>
+
+      <div class="rounded-[2.5rem] bg-zinc-950 p-8 text-white shadow-2xl">
+        <p class="text-sm uppercase tracking-[0.22em] text-zinc-400">
+          Faire Einschätzung
+        </p>
+
+        <h2 class="font-heading mt-4 text-4xl font-semibold leading-none">
+          Fotos reichen oft für den ersten Preisrahmen.
+        </h2>
+
+        <p class="mt-5 leading-8 text-zinc-300">
+          Schicken Sie uns Ort, Umfang und Bilder per WhatsApp. Wir melden uns
+          schnell mit einer realistischen Einschätzung.
+        </p>
+
+        <a
+          href={waHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-8 inline-flex rounded-2xl bg-white px-7 py-4 text-sm font-medium text-zinc-950 transition hover:bg-zinc-100"
+        >
+          WhatsApp öffnen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="mb-12">
+      <p class="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+        Preisrahmen
+      </p>
+
+      <h2 class="font-heading mt-4 text-5xl font-semibold leading-none tracking-tight text-zinc-950">
+        Orientierung für Ihre Anfrage
+      </h2>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="rounded-[2.5rem] border border-zinc-200 bg-white p-8 shadow-sm">
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+          Klein
+        </p>
+
+        <h3 class="mt-5 text-xl font-semibold text-zinc-950">
+          Kleine Entrümpelungen
+        </h3>
+
+        <p class="font-heading mt-6 text-5xl font-semibold tracking-tight text-zinc-950">
+          ab ca. 250 €
+        </p>
+
+        <p class="mt-6 leading-8 text-zinc-600">
+          Für einzelne Keller, kleine Abstellräume oder wenige Möbelstücke.
+        </p>
+      </div>
+
+      <div class="rounded-[2.5rem] border border-zinc-950 bg-zinc-950 p-8 text-white shadow-2xl">
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-zinc-400">
+          Häufig
+        </p>
+
+        <h3 class="mt-5 text-xl font-semibold">
+          Wohnungsentrümpelung
+        </h3>
+
+        <p class="font-heading mt-6 text-5xl font-semibold tracking-tight">
+          individuell
+        </p>
+
+        <p class="mt-6 leading-8 text-zinc-300">
+          Der Preis richtet sich nach Größe, Etage, Zustand, Umfang und
+          Entsorgungsaufwand.
+        </p>
+      </div>
+
+      <div class="rounded-[2.5rem] border border-zinc-200 bg-white p-8 shadow-sm">
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+          Gewerbe
+        </p>
+
+        <h3 class="mt-5 text-xl font-semibold text-zinc-950">
+          Büro & Gewerbe
+        </h3>
+
+        <p class="font-heading mt-6 text-5xl font-semibold tracking-tight text-zinc-950">
+          auf Anfrage
+        </p>
+
+        <p class="mt-6 leading-8 text-zinc-600">
+          Für Büros, Lager, Praxen und größere Flächen erstellen wir ein
+          individuelles Angebot.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="rounded-[2.5rem] border border-zinc-200 bg-zinc-50 p-8 sm:p-10">
+      <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+        <div>
+          <p class="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+            Berechnung
+          </p>
+
+          <h2 class="font-heading mt-4 text-5xl font-semibold leading-none tracking-tight text-zinc-950">
+            Wie entsteht der Preis?
+          </h2>
+
+          <p class="mt-6 leading-8 text-zinc-600">
+            Wir kalkulieren transparent nach tatsächlichem Aufwand. So vermeiden
+            Sie unklare Pauschalen und unnötige Zusatzkosten.
+          </p>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div class="rounded-[1.5rem] border border-zinc-200 bg-white p-6 shadow-sm">
+            <h3 class="font-semibold text-zinc-950">
+              Objekt & Umfang
+            </h3>
+            <p class="mt-3 text-sm leading-7 text-zinc-600">
+              Größe, Menge der Gegenstände und Art der Räumung.
+            </p>
+          </div>
+
+          <div class="rounded-[1.5rem] border border-zinc-200 bg-white p-6 shadow-sm">
+            <h3 class="font-semibold text-zinc-950">
+              Etage & Zugang
+            </h3>
+            <p class="mt-3 text-sm leading-7 text-zinc-600">
+              Aufzug, Treppenhaus, Parkmöglichkeit und Laufwege.
+            </p>
+          </div>
+
+          <div class="rounded-[1.5rem] border border-zinc-200 bg-white p-6 shadow-sm">
+            <h3 class="font-semibold text-zinc-950">
+              Entsorgung
+            </h3>
+            <p class="mt-3 text-sm leading-7 text-zinc-600">
+              Sperrmüll, Möbel, Elektrogeräte und sonstige Materialien.
+            </p>
+          </div>
+
+          <div class="rounded-[1.5rem] border border-zinc-200 bg-white p-6 shadow-sm">
+            <h3 class="font-semibold text-zinc-950">
+              Termin
+            </h3>
+            <p class="mt-3 text-sm leading-7 text-zinc-600">
+              Kurzfristige Termine oder größere Einsätze werden individuell
+              geplant.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+      <div>
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+          Angebot erhalten
+        </p>
+
+        <h2 class="font-heading mt-4 text-5xl font-semibold leading-none tracking-tight text-zinc-950">
+          Was wir für eine Einschätzung brauchen
+        </h2>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        {["Ort / PLZ", "Art des Objekts", "Grobe Größe", "Gewünschter Termin", "Fotos per WhatsApp", "Besonderheiten"].map(
+          (item) => (
+            <div class="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+              <p class="font-medium text-zinc-950">{item}</p>
+            </div>
+          )
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="mb-12">
+      <p class="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500">
+        FAQ
+      </p>
+
+      <h2 class="font-heading mt-4 text-5xl font-semibold leading-none tracking-tight text-zinc-950">
+        Häufige Fragen zu den Preisen
+      </h2>
+    </div>
+
+    <div class="space-y-4">
+      <div class="rounded-[1.5rem] border border-zinc-200 bg-white p-7 shadow-sm">
+        <h3 class="text-lg font-semibold text-zinc-950">
+          Gibt es Festpreise?
+        </h3>
+
+        <p class="mt-3 leading-8 text-zinc-600">
+          Ja. Nach Einschätzung des Umfangs erhalten Sie ein transparentes
+          Angebot.
+        </p>
+      </div>
+
+      <div class="rounded-[1.5rem] border border-zinc-200 bg-white p-7 shadow-sm">
+        <h3 class="text-lg font-semibold text-zinc-950">
+          Reichen Fotos für ein Angebot?
+        </h3>
+
+        <p class="mt-3 leading-8 text-zinc-600">
+          In vielen Fällen ja. Fotos per WhatsApp helfen bei einer schnellen und
+          realistischen Einschätzung.
+        </p>
+      </div>
+
+      <div class="rounded-[1.5rem] border border-zinc-200 bg-white p-7 shadow-sm">
+        <h3 class="text-lg font-semibold text-zinc-950">
+          Sind kurzfristige Termine möglich?
+        </h3>
+
+        <p class="mt-3 leading-8 text-zinc-600">
+          Je nach Auslastung sind kurzfristige Termine möglich.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-28">
+    <div class="relative overflow-hidden rounded-[2.5rem] bg-zinc-950 p-8 text-white shadow-2xl sm:p-10">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_top_left,white,transparent_35%)]"></div>
+      </div>
+
+      <div class="relative">
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-zinc-400">
+          Angebot anfragen
+        </p>
+
+        <h2 class="font-heading mt-4 max-w-3xl text-5xl font-semibold leading-none tracking-tight">
+          Kostenloses Angebot für Ihre Entrümpelung.
+        </h2>
+
+        <p class="mt-6 max-w-2xl leading-8 text-zinc-300">
+          Schicken Sie uns Ihre Anfrage per WhatsApp oder Kontaktformular. Je
+          mehr Informationen wir erhalten, desto genauer können wir den Aufwand
+          einschätzen.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href={waHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="rounded-2xl bg-white px-7 py-4 text-sm font-medium text-zinc-950 transition hover:bg-zinc-100"
+          >
+            WhatsApp öffnen
+          </a>
+
+          <a
+            href="/kontakt"
+            class="rounded-2xl border border-white/20 px-7 py-4 text-sm font-medium text-white transition hover:bg-white/10"
+          >
+            Kontaktformular
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

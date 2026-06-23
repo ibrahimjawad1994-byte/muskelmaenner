@@ -1,0 +1,55 @@
+---
+const { variant = "default" } = Astro.props;
+
+const isLight = variant === "light";
+---
+
+<a href="/" class="group flex items-center gap-5">
+  <!-- Logo Icon -->
+
+  <div
+    class={`relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-[1.6rem] transition duration-300 group-hover:scale-[1.02] ${
+      isLight
+        ? "bg-white text-zinc-950"
+        : "bg-zinc-950 text-white shadow-sm"
+    }`}
+  >
+    <div class="relative flex h-12 w-10 flex-col items-center justify-center leading-none">
+      <span class="font-serif text-[34px] font-light leading-[0.72] tracking-[-0.08em]">
+        M
+      </span>
+
+      <span class="-mt-1 font-serif text-[34px] font-light leading-[0.72] tracking-[-0.08em]">
+        M
+      </span>
+    </div>
+  </div>
+
+  <!-- Brand Text -->
+
+  <div>
+    <p
+      class={`font-serif text-[2.15rem] font-light tracking-[0.22em] transition ${
+        isLight ? "text-white" : "text-zinc-950 group-hover:text-zinc-700"
+      }`}
+    >
+      MUSKELMÄNNER
+    </p>
+
+    <div class="mt-2 flex items-center gap-4">
+      <div
+        class={`h-px w-12 ${
+          isLight ? "bg-zinc-500" : "bg-zinc-300"
+        }`}
+      ></div>
+
+      <p
+        class={`text-[11px] uppercase tracking-[0.38em] ${
+          isLight ? "text-zinc-400" : "text-zinc-500"
+        }`}
+      >
+        Entrümpelung Berlin
+      </p>
+    </div>
+  </div>
+</a>

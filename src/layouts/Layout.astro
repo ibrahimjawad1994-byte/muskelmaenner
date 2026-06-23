@@ -1,23 +1,131 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import "../styles/global.css";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.astro";
+
+import { company } from "../config/company";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = "Muskelmänner | Entrümpelung Berlin",
+  description =
+    "Professionelle Entrümpelungen, Haushaltsauflösungen und Räumungen in Berlin & Brandenburg. Schnell, sauber und zuverlässig.",
+  image = "/og-image.jpg",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, company.domain).toString();
+const ogImageURL = new URL(image, company.domain).toString();
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <!-- Basic -->
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+
+    <meta name="description" content={description} />
+
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Theme -->
+
+    <meta name="theme-color" content="#09090b" />
+
+    <!-- Open Graph -->
+
+    <meta property="og:type" content="website" />
+
+    <meta property="og:title" content={title} />
+
+    <meta property="og:description" content={description} />
+
+    <meta property="og:url" content={canonicalURL} />
+
+    <meta property="og:image" content={ogImageURL} />
+
+    <meta property="og:locale" content="de_DE" />
+
+    <meta property="og:site_name" content={company.name} />
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:title" content={title} />
+
+    <meta name="twitter:description" content={description} />
+
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- Icons -->
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+
+    <!-- Local SEO -->
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        name: company.name,
+        image: `${company.domain}/og-image.jpg`,
+        url: company.domain,
+        telephone: company.phoneDisplay,
+        email: company.email,
+        areaServed: ["Berlin", "Brandenburg"],
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Berlin",
+          addressCountry: "DE",
+        },
+        priceRange: "€€",
+        serviceType: [
+          "Entrümpelung",
+          "Haushaltsauflösung",
+          "Kellerentrümpelung",
+          "Büroentrümpelung",
+        ],
+      })}
+    />
+  </head>
+
+  <body class="bg-white text-zinc-900 antialiased">
+    <Header />
+
+    <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <WhatsAppFloat />
+  </body>
+</html>

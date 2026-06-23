@@ -1,0 +1,79 @@
+---
+import ServicePage from "../../components/ServicePage.astro";
+
+const benefits = [
+  {
+    title: "Planbare Termine",
+    text: "Ideal für Büroauflösungen, Umzüge, Renovierungen oder Flächenübergaben.",
+  },
+  {
+    title: "Faire Angebote",
+    text: "Transparente Einschätzung abhängig von Fläche, Umfang und Aufwand.",
+  },
+  {
+    title: "Saubere Übergabe",
+    text: "Auf Wunsch wird die Fläche ordentlich und besenrein übergeben.",
+  },
+];
+
+const steps = [
+  {
+    title: "Anfrage stellen",
+    text: "Senden Sie uns Standort, Umfang, Etage und gewünschtes Zeitfenster.",
+  },
+  {
+    title: "Planung & Angebot",
+    text: "Wir klären die Details und erstellen ein transparentes Angebot.",
+  },
+  {
+    title: "Büro räumen",
+    text: "Wir räumen Büro- oder Gewerbeflächen zuverlässig und ordentlich.",
+  },
+];
+
+const contentParagraphs = [
+  "Eine Büroentrümpelung ist sinnvoll, wenn Räume nach einem Umzug, einer Geschäftsaufgabe, Renovierung oder Neuvermietung frei gemacht werden müssen.",
+  "Muskelmänner unterstützt Unternehmen, Praxen, Büros und Gewerbeflächen bei strukturierten Räumungen in Berlin und Umgebung.",
+  "Wir übernehmen Büromöbel, Kartons, Lagerflächen, Nebenräume und Arbeitsbereiche zuverlässig und termingerecht.",
+];
+
+const areaParagraphs = [
+  "Wir übernehmen Büroentrümpelungen in ganz Berlin.",
+  "Auch im Berliner Umland können Büro- und Gewerberäumungen angefragt werden.",
+];
+
+const faqs = [
+  {
+    question: "Können auch größere Büroflächen geräumt werden?",
+    answer:
+      "Ja, je nach Umfang können auch größere Büro-, Praxis- oder Gewerbeflächen geräumt werden.",
+  },
+  {
+    question: "Sind kurzfristige Termine möglich?",
+    answer:
+      "Je nach Auslastung sind kurzfristige Termine möglich. Fragen Sie am besten direkt mit Umfang und gewünschtem Zeitraum an.",
+  },
+  {
+    question: "Kann die Fläche besenrein übergeben werden?",
+    answer:
+      "Ja, auf Wunsch hinterlassen wir die geräumte Fläche ordentlich und besenrein.",
+  },
+];
+---
+
+<ServicePage
+  metaTitle="Büroentrümpelung Berlin – Muskelmänner"
+  badge="Büroentrümpelung Berlin"
+  headline="Büroentrümpelung in Berlin & Umgebung"
+  intro="Zuverlässige Räumung von Büros, Praxen, Lagern und Gewerbeflächen – planbar, ordentlich und termingerecht."
+  whatsappText="Hallo Muskelmänner! Ich möchte eine Büroentrümpelung in Berlin anfragen."
+  benefits={benefits}
+  contentTitle="Büro- und Gewerbeflächen entrümpeln"
+  contentParagraphs={contentParagraphs}
+  steps={steps}
+  areaTitle="Büroentrümpelung in Berlin & Umgebung"
+  areaParagraphs={areaParagraphs}
+  faqs={faqs}
+  ctaTitle="Jetzt Büroentrümpelung anfragen"
+  ctaText="Schicken Sie uns Standort, Umfang und gewünschten Termin. Wir melden uns schnell mit einer Einschätzung zurück."
+/>

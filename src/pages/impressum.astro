@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { company } from "../config/company";
+---
+
+<Layout title={`Impressum – ${company.name}`}>
+  <section class="mx-auto max-w-3xl py-16">
+    <h1 class="text-4xl font-semibold tracking-tight">Impressum</h1>
+
+    <div class="mt-8 space-y-6 text-zinc-700">
+      
+      <div>
+        <h2 class="text-xl font-semibold text-zinc-900">Angaben gemäß § 5 TMG</h2>
+        <p class="mt-2">
+          {company.name}<br />
+          {company.owner}<br />
+          {company.street}<br />
+          {company.city}
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-zinc-900">Kontakt</h2>
+        <p class="mt-2">
+          Telefon: {company.phoneDisplay}<br />
+          E-Mail: {company.email}
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-zinc-900">Umsatzsteuer</h2>
+        <p class="mt-2">
+          Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
+          {company.ustId}
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-zinc-900">
+          Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
+        </h2>
+        <p class="mt-2">
+          {company.owner}<br />
+          {company.street}<br />
+          {company.city}
+        </p>
+      </div>
+
+    </div>
+  </section>
+</Layout>
