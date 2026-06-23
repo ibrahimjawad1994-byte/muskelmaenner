@@ -167,6 +167,7 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
           id="contact-form"
           action="https://formspree.io/f/mgojvpzp"
           method="POST"
+          novalidate
           class="mt-10 space-y-5"
         >
           <input type="hidden" name="source" value="Website Muskelmänner" />
@@ -177,11 +178,13 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
               <label for="name" class="mb-2 block text-sm font-medium text-zinc-900">
                 Name
               </label>
+
               <input
                 id="name"
                 name="name"
                 type="text"
                 required
+                minlength="2"
                 class="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3.5 text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-950"
                 placeholder="Ihr Name"
               />
@@ -191,10 +194,14 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
               <label for="phone" class="mb-2 block text-sm font-medium text-zinc-900">
                 Telefon
               </label>
+
               <input
                 id="phone"
                 name="phone"
                 type="tel"
+                required
+                minlength="8"
+                pattern="^[0-9+\s()/.-]{8,}$"
                 class="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3.5 text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-950"
                 placeholder="+49 ..."
               />
@@ -206,6 +213,7 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
               <label for="email" class="mb-2 block text-sm font-medium text-zinc-900">
                 E-Mail
               </label>
+
               <input
                 id="email"
                 name="email"
@@ -220,10 +228,13 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
               <label for="location" class="mb-2 block text-sm font-medium text-zinc-900">
                 Ort / PLZ
               </label>
+
               <input
                 id="location"
                 name="location"
                 type="text"
+                required
+                minlength="3"
                 class="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3.5 text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-950"
                 placeholder="z. B. Berlin 10779"
               />
@@ -245,11 +256,13 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
             <label for="message" class="mb-2 block text-sm font-medium text-zinc-900">
               Nachricht
             </label>
+
             <textarea
               id="message"
               name="message"
               rows="7"
               required
+              minlength="10"
               class="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3.5 text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-950"
               placeholder="Beschreiben Sie kurz Ihr Anliegen."
             ></textarea>
@@ -277,18 +290,120 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
     const status = document.getElementById("form-status");
     const button = document.getElementById("submit-button");
 
+    const errorClass = "border-red-400";
+    const normalClass = "border-zinc-300";
+
+    function showError(message) {
+      if (status instanceof HTMLElement) {
+        status.textContent = message;
+        status.classList.remove("hidden");
+      }
+    }
+
+    function clearError() {
+      if (status instanceof HTMLElement) {
+        status.textContent = "";
+        status.classList.add("hidden");
+      }
+    }
+
+    function markInvalid(input) {
+      input.classList.remove(normalClass);
+      input.classList.add(errorClass);
+    }
+
+    function markValid(input) {
+      input.classList.remove(errorClass);
+      input.classList.add(normalClass);
+    }
+
+    function resetButton() {
+      if (button instanceof HTMLButtonElement) {
+        button.disabled = false;
+        button.textContent = "Anfrage senden";
+      }
+    }
+
     if (form instanceof HTMLFormElement) {
+      const requiredFields = form.querySelectorAll(
+        "input[required], textarea[required]"
+      );
+
+      requiredFields.forEach((field) => {
+        if (
+          field instanceof HTMLInputElement ||
+          field instanceof HTMLTextAreaElement
+        ) {
+          field.addEventListener("input", () => {
+            if (field.validity.valid) {
+              markValid(field);
+            }
+          });
+        }
+      });
+
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
+        clearError();
+
+        const name = form.querySelector("#name");
+        const phone = form.querySelector("#phone");
+        const email = form.querySelector("#email");
+        const location = form.querySelector("#location");
+        const message = form.querySelector("#message");
+
+        const fields = [name, phone, email, location, message];
+
+        fields.forEach((field) => {
+          if (
+            field instanceof HTMLInputElement ||
+            field instanceof HTMLTextAreaElement
+          ) {
+            markValid(field);
+          }
+        });
+
+        if (name instanceof HTMLInputElement && !name.validity.valid) {
+          markInvalid(name);
+          showError("Bitte geben Sie Ihren Namen ein.");
+          name.focus();
+          return;
+        }
+
+        if (phone instanceof HTMLInputElement && !phone.validity.valid) {
+          markInvalid(phone);
+          showError("Bitte geben Sie eine gültige Telefonnummer ein.");
+          phone.focus();
+          return;
+        }
+
+        if (email instanceof HTMLInputElement && !email.validity.valid) {
+          markInvalid(email);
+          showError("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
+          email.focus();
+          return;
+        }
+
+        if (location instanceof HTMLInputElement && !location.validity.valid) {
+          markInvalid(location);
+          showError("Bitte geben Sie den Ort oder die Postleitzahl an.");
+          location.focus();
+          return;
+        }
+
+        if (
+          message instanceof HTMLTextAreaElement &&
+          !message.validity.valid
+        ) {
+          markInvalid(message);
+          showError("Bitte beschreiben Sie Ihr Anliegen etwas genauer.");
+          message.focus();
+          return;
+        }
 
         if (button instanceof HTMLButtonElement) {
           button.disabled = true;
           button.textContent = "Wird gesendet...";
-        }
-
-        if (status instanceof HTMLElement) {
-          status.classList.add("hidden");
-          status.textContent = "";
         }
 
         const data = new FormData(form);
@@ -309,23 +424,16 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
 
           const errorData = await response.json().catch(() => null);
 
-          if (status instanceof HTMLElement) {
-            status.textContent =
-              errorData?.errors?.[0]?.message ||
-              "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.";
-            status.classList.remove("hidden");
-          }
+          showError(
+            errorData?.errors?.[0]?.message ||
+              "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
+          );
         } catch {
-          if (status instanceof HTMLElement) {
-            status.textContent =
-              "Es gab ein Netzwerkproblem. Bitte versuchen Sie es erneut.";
-            status.classList.remove("hidden");
-          }
+          showError(
+            "Es gab ein Netzwerkproblem. Bitte versuchen Sie es erneut."
+          );
         } finally {
-          if (button instanceof HTMLButtonElement) {
-            button.disabled = false;
-            button.textContent = "Anfrage senden";
-          }
+          resetButton();
         }
       });
     }
