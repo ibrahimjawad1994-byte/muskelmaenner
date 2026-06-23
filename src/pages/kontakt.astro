@@ -200,10 +200,10 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
                 name="phone"
                 type="tel"
                 required
-                minlength="8"
-                pattern="^[0-9+\s()/.-]{8,}$"
+                autocomplete="tel"
+                inputmode="tel"
                 class="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3.5 text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-950"
-                placeholder="+49 ..."
+                placeholder="+49 152 12345678"
               />
             </div>
           </div>
@@ -219,6 +219,7 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
                 name="email"
                 type="email"
                 required
+                autocomplete="email"
                 class="w-full rounded-2xl border border-zinc-300 bg-white px-4 py-3.5 text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-zinc-950"
                 placeholder="email@email.de"
               />
@@ -324,6 +325,43 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
       }
     }
 
+    function isValidPhone(value) {
+      const trimmed = value.trim();
+      const digitCount = trimmed.replace(/\D/g, "").length;
+
+      return /^[+]?[0-9\s()/.-]{8,}$/.test(trimmed) && digitCount >= 7;
+    }
+
+    function redirectToThanksPage() {
+      window.location.href = "/danke";
+    }
+
+    function trackFormSubmitAndRedirect() {
+      const gtag = window["gtag"];
+
+      if (typeof gtag !== "function") {
+        redirectToThanksPage();
+        return;
+      }
+
+      let redirected = false;
+
+      const safeRedirect = () => {
+        if (redirected) return;
+        redirected = true;
+        redirectToThanksPage();
+      };
+
+      gtag("event", "form_submit", {
+        event_category: "Kontakt",
+        event_label: "Kontaktformular",
+        form_name: "Kontaktformular",
+        event_callback: safeRedirect,
+      });
+
+      setTimeout(safeRedirect, 800);
+    }
+
     if (form instanceof HTMLFormElement) {
       const requiredFields = form.querySelectorAll(
         "input[required], textarea[required]"
@@ -370,7 +408,7 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
           return;
         }
 
-        if (phone instanceof HTMLInputElement && !phone.validity.valid) {
+        if (phone instanceof HTMLInputElement && !isValidPhone(phone.value)) {
           markInvalid(phone);
           showError("Bitte geben Sie eine gültige Telefonnummer ein.");
           phone.focus();
@@ -418,7 +456,7 @@ const waHref = `https://wa.me/${company.whatsappNumber}?text=${encodeURIComponen
           });
 
           if (response.ok) {
-            window.location.href = "/danke";
+            trackFormSubmitAndRedirect();
             return;
           }
 
