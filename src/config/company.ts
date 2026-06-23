@@ -7,8 +7,8 @@ export const company = {
   postalCode: "10779",
   city: "Berlin",
 
-  phoneDisplay: "+49 162 4626510",
-  phoneTel: "+491624626510",
+  phoneDisplay: "0152 58996957",
+  phoneTel: "+4915258996957",
 
   email: "info@muskelmaenner.de",
 
