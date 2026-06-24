@@ -7,19 +7,19 @@ const currentYear = new Date().getFullYear();
 const services = [
   {
     label: "Wohnungsentrümpelung",
-    href: "/wohnungsentruempelung-berlin",
+    href: "/services/wohnungsentruempelung-berlin",
   },
   {
     label: "Haushaltsauflösung",
-    href: "/haushaltsaufloesung-berlin",
+    href: "/services/haushaltsaufloesung-berlin",
   },
   {
     label: "Kellerentrümpelung",
-    href: "/keller-entruempelung-berlin",
+    href: "/services/keller-entruempelung-berlin",
   },
   {
     label: "Büroentrümpelung",
-    href: "/buero-entruempelung-berlin",
+    href: "/services/buero-entruempelung-berlin",
   },
 ];
 ---
@@ -29,27 +29,27 @@ const services = [
     <div class="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_top_left,white,transparent_35%)]"></div>
   </div>
 
-  <div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-    <div class="grid gap-14 lg:grid-cols-[1.4fr_0.8fr_0.8fr_0.8fr]">
-      <div>
+  <div class="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+    <div class="grid gap-10 lg:grid-cols-[1.4fr_0.8fr_0.8fr_0.8fr] lg:gap-14">
+      <div class="min-w-0">
         <Logo variant="light" />
 
-        <p class="mt-8 max-w-md leading-8 text-zinc-400">
+        <p class="mt-6 max-w-md text-sm leading-7 text-zinc-400 sm:mt-8 sm:text-base sm:leading-8">
           Professionelle Entrümpelungen, Haushaltsauflösungen und Räumungen
           für private und gewerbliche Kunden in Berlin und Umgebung.
         </p>
 
-        <div class="mt-8 flex flex-wrap gap-3">
+        <div class="mt-7 grid gap-3 sm:mt-8 sm:flex sm:flex-wrap">
           <a
             href="/kontakt"
-            class="rounded-2xl bg-white px-6 py-3 text-sm font-medium text-zinc-950 transition hover:bg-zinc-100"
+            class="rounded-2xl bg-white px-6 py-3 text-center text-sm font-medium text-zinc-950 transition hover:bg-zinc-100"
           >
             Angebot anfragen
           </a>
 
           <a
             href={`tel:${company.phoneTel}`}
-            class="rounded-2xl border border-white/15 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+            class="rounded-2xl border border-white/15 px-6 py-3 text-center text-sm font-medium text-white transition hover:bg-white/10"
           >
             Anrufen
           </a>
@@ -57,11 +57,11 @@ const services = [
       </div>
 
       <div>
-        <h3 class="text-xs font-medium uppercase tracking-[0.24em] text-zinc-500">
+        <h3 class="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 sm:tracking-[0.24em]">
           Navigation
         </h3>
 
-        <ul class="mt-6 space-y-4">
+        <ul class="mt-5 grid gap-3 text-sm sm:mt-6 sm:gap-4 sm:text-base">
           <li>
             <a href="/" class="text-zinc-400 transition hover:text-white">
               Startseite
@@ -89,11 +89,11 @@ const services = [
       </div>
 
       <div>
-        <h3 class="text-xs font-medium uppercase tracking-[0.24em] text-zinc-500">
+        <h3 class="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 sm:tracking-[0.24em]">
           Leistungen
         </h3>
 
-        <ul class="mt-6 space-y-4">
+        <ul class="mt-5 grid gap-3 text-sm sm:mt-6 sm:gap-4 sm:text-base">
           {
             services.map((service) => (
               <li>
@@ -110,15 +110,15 @@ const services = [
       </div>
 
       <div>
-        <h3 class="text-xs font-medium uppercase tracking-[0.24em] text-zinc-500">
+        <h3 class="text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 sm:tracking-[0.24em]">
           Kontakt
         </h3>
 
-        <ul class="mt-6 space-y-4">
+        <ul class="mt-5 grid gap-3 text-sm sm:mt-6 sm:gap-4 sm:text-base">
           <li>
             <a
               href={`tel:${company.phoneTel}`}
-              class="text-zinc-400 transition hover:text-white"
+              class="break-words text-zinc-400 transition hover:text-white"
             >
               {company.phoneDisplay}
             </a>
@@ -127,7 +127,7 @@ const services = [
           <li>
             <a
               href={`mailto:${company.email}`}
-              class="text-zinc-400 transition hover:text-white"
+              class="break-all text-zinc-400 transition hover:text-white"
             >
               {company.email}
             </a>
@@ -140,11 +140,13 @@ const services = [
       </div>
     </div>
 
-    <div class="mt-16 border-t border-white/10 pt-8">
-      <div class="flex flex-col gap-5 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
-        <p>© {currentYear} Muskelmänner. Alle Rechte vorbehalten.</p>
+    <div class="mt-12 border-t border-white/10 pt-6 sm:mt-16 sm:pt-8">
+      <div class="flex flex-col gap-4 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
+        <p class="leading-6">
+          © {currentYear} Muskelmänner. Alle Rechte vorbehalten.
+        </p>
 
-        <div class="flex flex-wrap items-center gap-6">
+        <div class="flex flex-wrap items-center gap-5 sm:gap-6">
           <a href="/impressum" class="transition hover:text-white">
             Impressum
           </a>
