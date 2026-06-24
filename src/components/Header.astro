@@ -1,45 +1,30 @@
 ---
 import MobileMenu from "./MobileMenu.jsx";
 import Logo from "./Logo.astro";
-
-const navigation = [
-  { label: "Start", href: "/" },
-  { label: "Leistungen", href: "/leistungen" },
-  { label: "Preise", href: "/preise" },
-  { label: "Kontakt", href: "/kontakt" },
-];
 ---
 
 <header class="sticky top-0 z-50 w-full overflow-x-clip border-b border-zinc-200/80 bg-white/95 backdrop-blur-xl">
-  <div class="mx-auto flex h-20 max-w-7xl items-center justify-between gap-3 px-4 sm:h-24 sm:px-6 lg:h-auto lg:px-8 lg:py-5">
+  <div class="mx-auto flex h-[92px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:h-auto lg:px-8 lg:py-5">
     <div class="min-w-0 flex-1 overflow-hidden">
       <Logo />
-    </div>
-
-    <nav class="hidden items-center gap-10 lg:flex">
-      {
-        navigation.map((item) => (
-          <a
-            href={item.href}
-            class="text-sm font-medium tracking-[0.08em] text-zinc-600 transition duration-200 hover:text-zinc-950"
-          >
-            {item.label}
-          </a>
-        ))
-      }
-    </nav>
-
-    <div class="hidden shrink-0 lg:block">
-      <a
-        href="/kontakt"
-        class="rounded-2xl bg-zinc-950 px-5 py-3 text-sm font-medium tracking-[0.04em] text-white transition duration-200 hover:bg-zinc-800"
-      >
-        Angebot anfragen
-      </a>
     </div>
 
     <div class="shrink-0 lg:hidden">
       <MobileMenu client:load />
     </div>
+
+    <nav class="hidden items-center gap-10 lg:flex">
+      <a href="/" class="text-sm font-medium tracking-[0.08em] text-zinc-600 hover:text-zinc-950">Start</a>
+      <a href="/leistungen" class="text-sm font-medium tracking-[0.08em] text-zinc-600 hover:text-zinc-950">Leistungen</a>
+      <a href="/preise" class="text-sm font-medium tracking-[0.08em] text-zinc-600 hover:text-zinc-950">Preise</a>
+      <a href="/kontakt" class="text-sm font-medium tracking-[0.08em] text-zinc-600 hover:text-zinc-950">Kontakt</a>
+    </nav>
+
+    <a
+      href="/kontakt"
+      class="hidden rounded-2xl bg-zinc-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-zinc-800 lg:block"
+    >
+      Angebot anfragen
+    </a>
   </div>
 </header>
